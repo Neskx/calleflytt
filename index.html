@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calles Flytt - Flyttfirma Svergie</title>
+    <meta name="description" content="Vi är en flyttfirma från Skåne som erbjuder alla flytttjänster under samma tak.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #f57600;
+            color: white;
+            padding: 20px 0;
+            font-size: 21px;
+        }
+
+        .top-bar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .top-bar a:hover {
+            opacity: 0.9;
+        }
+
+        .top-bar svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        /* Background fade area */
+        .bg-area {
+            background: url('TryggFlytt.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 220px;
+            min-height: 120px;
+            padding: 30px 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(50, 50, 50, 0.7), rgba(50, 50, 50, 0.7)), url('TryggFlyttBG.png');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 20px;
+            color: white;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            padding-right: 120px;
+        }
+
+        .hero-content h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .hero-content h1 {
+            font-size: 80px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 24px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        /* Form Card */
+        .form-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .form-card h3 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        .form-group select {
+            background: #fff;
+            color: #333;
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="%23999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            background-size: 12px;
+            padding-right: 44px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #f57600;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: #f57600;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #e06800;
+        }
+
+        /* Features Section */
+        .features {
+            background: #f5f5f5;
+            padding: 50px 20px;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .check-icon {
+            background: #f57600;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .feature-item span {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Orange Section */
+        .orange-section {
+            background: #f57600;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .orange-section-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .orange-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .orange-section p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .content-section {
+            background: #fff;
+            padding: 60px 20px;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-box {
+            background: #f5f5f5;
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-box h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 24px;
+            height: 24px;
+            color: #f57600;
+            flex-shrink: 0;
+        }
+
+        .contact-item a {
+            color: #f57600;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            color: #e06800;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .bg-area { 
+                min-height: 100px;
+                background-size: 160px;
+                padding: 20px 0;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero-container,
+            .content-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-content {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .features-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 52px;
+                margin-bottom: 20px;
+            }
+
+            .hero-content h2 {
+                font-size: 20px;
+            }
+
+            .hero-content p {
+                font-size: 18px;
+                line-height: 1.7;
+                margin-bottom: 30px;
+            }
+
+            .top-bar {
+                font-size: 14px;
+                padding: 12px 0;
+            }
+
+            .top-bar-container {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .top-bar a {
+                gap: 12px;
+            }
+
+            .form-card {
+                padding: 30px 20px;
+            }
+
+            .contact-box {
+                padding: 30px 20px;
+            }
+
+            .orange-section h2 {
+                font-size: 32px;
+            }
+
+            .orange-section p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <a href="tel:0760904330">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                </svg>
+                076-090-4330
+            </a>
+            <a href="mailto:callesflytt@gmail.com">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                callesflytt@gmail.com
+            </a>
+        </div>
+    </div>
+
+    <!-- Logo Background Section -->
+    <section class="bg-area" aria-label="TryggFlytt bakgrund"></section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Calles Flytt</h1>
+                <p>Vi på Calles Flytt erbjuder professionella flyttjänster över hela landet. Oavsett om du ska flytta inom staden eller till en ny del av Sverige ser vi till att din flytt blir enkel, säker och smidig. Med erfaren personal, moderna fordon och fokus på noggrannhet tar vi hand om hela processen – från packning till transport och montering.
+</p>
+            </div>
+
+            <div class="form-card">
+                <h3>Snabboffert</h3>
+                <form id="quoteForm">
+                    <div class="form-group">
+                        <label for="name">Förnamn Efternamn</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-post</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service">Tjänst</label>
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected>Välj tjänst*</option>
+                            <option value="BohagsFlytt">BohagsFlytt</option>
+                            <option value="Bortforsling">Bortforsling</option>
+                            <option value="Flyttstäd">Flyttstäd</option>
+                            <option value="Bärhjälp Packning">Bärhjälp Packning</option>
+                            <option value="Transport av varor">Transport av varor</option>
+                            <option value="Magasinering">Magasinering</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Hur kan vi hjälpa dig?</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Skicka Snabboffert</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <div class="feature-item">
+                <div class="check-icon">✓</div>
+                <span>Auktoriserad & Försäkrad Flyttfirma</span>
+            </div>
+            <div class="feature-item">
+                <div class="check-icon">✓</div>
+                <span>Vi följer Bohag 2010 & arbetar efter moderna standarder</span>
+            </div>
+            <div class="feature-item">
+                <div class="check-icon">✓</div>
+                <span>Ny generation i flyttbranschen – med fokus på kvalitet & punktlighet</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Orange Section -->
+    <section class="orange-section">
+        <div class="orange-section-container">
+            <h2>Flytthjälp i Svergie</h2>
+            <p>Calles Flytt hjälper privatpersoner och företag med flyttar i hela Sverige. Vi kombinerar erfarenhet, noggrannhet och service för att ge dig en smidig flytt från start till mål. Vårt team tar hand om allt – packning, bärhjälp, transport och montering – så att du kan fokusera på det som är viktigt för dig.
+
+Vi anpassar varje uppdrag efter dina behov. Välj Calles Flytt för en pålitlig partner som gör flytten enklare.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="content-section">
+        <div class="content-container">
+            <div class="contact-box">
+                <h3>Kontakta Calles Flytt</h3>
+                <div class="contact-item">
+                    <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    <a href="tel:0760904330">Ring direkt: 076-090-4330</a>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <a href="#">Vi Jobbar i Hela Svergie</a>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <a href="#">Öppettider: 24/7</a>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <a href="mailto:callesflytt@gmail.com">callesflytt@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Form Submission Script -->
+    <script>
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                service: formData.get('service'),
+                message: formData.get('message'),
+                timestamp: new Date().toISOString()
+            };
+
+            // Change button text
+            const submitBtn = this.querySelector('.submit-btn');
+            submitBtn.textContent = 'Skickar...';
+            submitBtn.disabled = true;
+
+            // Send data to webhook
+            fetch('https://meggamind.app.n8n.cloud/webhook/callesflytt-lead', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            }).catch(function(error) {
+                console.log('Webhook error:', error);
+            });
+
+            // Redirect after 800ms
+            setTimeout(function() {
+                window.location.href = 'thank-you.html';
+            }, 800);
+        });
+    </script>
+
+</body>
+</html>

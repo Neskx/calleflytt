@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tack – Calles Flytt</title>
+  <meta name="description" content="Tack för din förfrågan. Vi kontaktar dig inom kort."/>
+<style>
+  :root { --brand:#f57600; --dark:#222; --muted:#666; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { height:100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: url('TY_BG.png') center/cover no-repeat;
+    color:#333;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+  .card {
+    width:100%;
+    max-width:560px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+    padding:40px 32px;
+    text-align:center;
+  }
+  .mark {
+    width:96px; height:96px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    background: #fff7f0;
+    display:grid; place-items:center;
+    border:2px solid var(--brand);
+  }
+  .mark svg { width:56px; height:56px; display:block; }
+  h1 { font-size:32px; line-height:1.2; margin-bottom:10px; }
+  p  { font-size:16px; color:var(--muted); line-height:1.7; margin-bottom:26px; }
+  .btn {
+    display:inline-block;
+    padding:14px 18px;
+    font-size:16px;
+    font-weight:600; 
+    text-decoration:none;
+    color:#fff;
+    background:var(--dark);
+    border-radius:8px;
+    transition:filter .2s ease, transform .02s ease-in-out;
+  }
+  .btn:hover { filter:brightness(1.05); }
+  .btn:active { transform:translateY(1px); }
+  .small { font-size:13px; color:#999; margin-top:12px; }
+</style>
+
+</head>
+<body>
+  <main class="card" role="main" aria-labelledby="tack-title">
+    <div class="mark" aria-hidden="true">
+      <!-- Orange check mark -->
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="12" cy="12" r="11" stroke="#f57600" stroke-width="2"/>
+        <path d="M7 12.5l3 3 7-7" stroke="#f57600" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <h1 id="tack-title">Tack för din förfrågan</h1>
+    <p>Vi har mottagit dina uppgifter. Vi kontaktar dig inom kort.</p>
+
+    <a class="btn" href="index.html">Till startsidan</a>
+    <div class="small">Behöver du snabb hjälp? Ring 076-090-4330.</div>
+  </main>
+</body>
+</html>
